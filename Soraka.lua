@@ -56,4 +56,4 @@ end
 end	
 end)
 
-PrintChat("Soraka by Musti")
+PrintChat("Divine Soraka by Musti")
