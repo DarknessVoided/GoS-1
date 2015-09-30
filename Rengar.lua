@@ -7,7 +7,7 @@ local Config = Menu("Rengar", "Rengar")
 Config:SubMenu("c", "Combo")
 Config.c:Boolean("Q", "EMP Q", true)
 Config.c:Boolean("W", "EMP W", false)
-Config.c:Boolean("E", "EMP E", false)
+Config.c:Boolean("E", "EMP E", true)
 
 PrintChat("Headhunter Rengar by Musti")
 OnLoop(function(myHero)
@@ -33,12 +33,10 @@ OnLoop(function(myHero)
     if GotBuff(myHero, "rengarpassivebuff") == 0 then
       if GetCurrentHP(myHero) > 350 then
         if (CanUseSpell(myHero, _Q) == 0 or CanUseSpell(myHero, _W) == 0 or CanUseSpell(myHero, _E) == 0) then
-          atake(taa)
         end
       end
       if GetCurrentMana(myHero) <= 4 then
         if GotBuff(myHero, "rengarqbase") == 1 or GotBuff(myHero, "rengarqemp") == 1 then
-          atake(tQ)
         end
         if CanUseSpell(myHero, _E) == 0 then
           CastE(tE)
@@ -113,8 +111,4 @@ function CastEE(unit)
       CastSkillShot(_E, pe.PredPos.x, pe.PredPos.y, pe.PredPos.z)
     end
   end
-end
-
-function atake(unit)
-  AttackUnit(unit)
 end
